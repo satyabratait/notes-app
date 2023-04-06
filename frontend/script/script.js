@@ -118,16 +118,18 @@ function modifyNote(noteId, noteTitle, noteContent) {
         title: noteTitle,
         content: noteContent,
       }),
-    }).then((res) => {
-      console.log("Request complete! response:", res);
-      return res.json();
-    }).then((data) => {
-      eventMsg.classList.toggle("hide");
-      eventMsg.textContent = data.message;
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
-    });
+    })
+      .then((res) => {
+        console.log("Request complete! response:", res);
+        return res.json();
+      })
+      .then((data) => {
+        eventMsg.classList.toggle("hide");
+        eventMsg.textContent = data.message;
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      });
   } else {
     location.reload();
     alert("fields are empty");

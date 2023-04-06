@@ -28,16 +28,16 @@ body {
 }
 
 .noteCard:nth-child(even) {
-  background: linear-gradient(
-    130deg,
-    #0C4271 0%,
-    rgba(59, 60, 75, 1) 80%
-  );
+  background: linear-gradient(130deg, #0c4271 0%, rgba(59, 60, 75, 1) 80%);
   color: #e9e9f2;
 }
 
 .noteCard:nth-child(odd) {
-  background: linear-gradient(160deg, hsla(41, 100%, 70%, 1) 0%, hsla(7, 76%, 42%, 1) 100%);
+  background: linear-gradient(
+    160deg,
+    hsla(41, 100%, 70%, 1) 0%,
+    hsla(7, 76%, 42%, 1) 100%
+  );
 }
 
 .inputForm {
@@ -93,7 +93,7 @@ body {
   color: white !important;
 }
 
-.popupHeading{
+.popupHeading {
   display: none;
 }
 
