@@ -8,12 +8,12 @@ export async function createNote(title, content) {
   if (result) {
     return JSON.stringify({
       status: 201,
-      message: "data added",
+      message: "note added sucessfully",
     });
   } else {
     return JSON.stringify({
       status: 204,
-      message: "data cannot be created",
+      message: "note cannot be created",
     });
   }
 }
@@ -28,13 +28,13 @@ export async function updateNote(id, title, content) {
     if (result) {
       return JSON.stringify({
         status: 201,
-        message: "updated success",
+        message: "note updated sucessfully",
         result,
       });
     } else {
       return JSON.stringify({
         status: 204,
-        message: "data cannot be updated",
+        message: "note cannot be updated",
         result,
       });
     }
@@ -47,13 +47,13 @@ export async function deleteNote(id) {
   if (data) {
     return JSON.stringify({
       status: 200,
-      message: "data deleted",
+      message: "note deleted sucessfully",
       data,
     });
   } else {
     return JSON.stringify({
       status: 204,
-      message: "data not found",
+      message: "note not found",
       data,
     });
   }
@@ -65,13 +65,13 @@ export async function readNotes() {
     if (data) {
       return JSON.stringify({
         status: 200,
-        message: "all datas",
+        message: "all notes",
         data,
       });
     } else {
       return JSON.stringify({
         status: 204,
-        message: "data cannot be fetched",
+        message: "notes cannot be fetched",
         data,
       });
     }
@@ -86,13 +86,13 @@ export async function getOneData(id) {
     if (data) {
       return JSON.stringify({
         status: 200,
-        message: "data found",
+        message: "note found",
         data,
       });
     } else {
       return JSON.stringify({
         status: 204,
-        message: "data cannot be fetched",
+        message: "note cannot be fetched",
         data,
       });
     }

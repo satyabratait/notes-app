@@ -7,6 +7,10 @@ button {
   border: 2px solid white;
 }
 
+.checkIcon {
+  transform: rotate(45deg);
+}
+
 body {
   background-color: #122736;
 }
@@ -18,17 +22,22 @@ body {
 .noteCard {
   width: 18rem;
   overflow: hidden;
-  height: 10rem;
+  height: 11rem;
   padding-top: 1rem;
+  overflow: auto;
 }
 
 .noteCard:nth-child(even) {
   background: linear-gradient(
-    180deg,
-    rgb(121, 121, 135) 0%,
-    rgba(59, 60, 75, 1) 100%
+    130deg,
+    #0C4271 0%,
+    rgba(59, 60, 75, 1) 80%
   );
   color: #e9e9f2;
+}
+
+.noteCard:nth-child(odd) {
+  background: linear-gradient(160deg, hsla(41, 100%, 70%, 1) 0%, hsla(7, 76%, 42%, 1) 100%);
 }
 
 .inputForm {
@@ -38,7 +47,7 @@ body {
 .inputTitle {
   width: 100%;
   text-align: start;
-  background-color: #122736;
+  background-color: transparent;
   padding-left: 2rem;
   color: white;
   border: 2px solid white;
@@ -48,20 +57,22 @@ body {
 .title {
   margin-left: 2rem;
   outline: none;
+  text-align: start;
 }
 
 .content {
   margin-left: 2rem;
   margin-top: 2rem;
   outline: none;
+  color: #a9afb3;
 }
 
 .inputContent {
   width: 100%;
   text-align: start;
   padding-left: 2rem;
-  background-color: #122736;
   color: white;
+  background: transparent;
   border: 2px solid white;
   outline: none;
 }
@@ -82,22 +93,28 @@ body {
   color: white !important;
 }
 
-.content {
-  color: #a9afb3;
+.popupHeading{
+  display: none;
 }
 
 .deleteBtn {
   width: 25%;
   padding: 5% 3% 5% 3%;
   border-radius: 20%;
-  margin-top: 10%;
+  margin-top: 3rem;
 }
 
 .modifyBtn {
   width: 25%;
   padding: 5% 3% 5% 3%;
-  margin-top: 10%;
   border-radius: 20%;
+  margin-top: 3rem;
+}
+
+.eventMsg {
+  padding-top: 2rem;
+  text-align: center;
+  color: white;
 }
 
 @media screen and (min-width: 425px) {
@@ -114,6 +131,15 @@ body {
   .modifyBtn {
     width: 16%;
     padding: 4% 3% 4% 3%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .popupHeading {
+    display: block;
+    margin-left: 23%;
   }
 }
 
@@ -139,6 +165,10 @@ body {
   .modifyBtn {
     width: 10%;
     padding: 2% 0% 2% 0%;
+  }
+
+  .popupHeading {
+    margin-left: 32%;
   }
 }
 
@@ -167,6 +197,10 @@ body {
     width: 8%;
     padding: 2% 0% 2% 0%;
   }
+
+  .popupHeading {
+    margin-left: 34%;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -186,5 +220,15 @@ body {
   .modifyBtn {
     width: 6%;
     padding: 1.5% 0% 1.5% 0%;
+  }
+
+  .popupHeading {
+    margin-left: 40%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .popupHeading {
+    margin-left: 41.5%;
   }
 }

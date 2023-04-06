@@ -1,5 +1,4 @@
 const addBtn = document.getElementById("addBtn");
-const clearAll = document.getElementById("clearAll");
 const addTitle = document.getElementById("addTitle");
 const addContent = document.getElementById("addContext");
 const notesCard = document.getElementById("notesCard");
@@ -12,10 +11,12 @@ const deleteBtn = document.querySelector(".deleteBtn");
 const modifyBtn = document.querySelector(".modifyBtn");
 const heading = document.querySelector(".heading");
 const crossBtn = document.getElementById("crossBtn");
+const eventMsg = document.querySelector(".eventMsg");
 
 showInputs.addEventListener("click", () => {
   inputNote.classList.toggle("hide");
   notesCard.classList.toggle("hide");
+  showInputs.classList.toggle("checkIcon");
 });
 
 addBtn.addEventListener("click", () => {
@@ -29,12 +30,20 @@ addBtn.addEventListener("click", () => {
         title: addTitle.value,
         content: addContent.value,
       }),
-    }).then((res) => {
-      console.log("Request complete! response:", res);
-      addTitle.value = "";
-      addContent.value = "";
-      location.reload();
-    });
+    })
+      .then((res) => {
+        console.log(res);
+        addTitle.value = "";
+        addContent.value = "";
+        return res.json();
+      })
+      .then((data) => {
+        eventMsg.classList.toggle("hide");
+        eventMsg.textContent = data.message;
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      });
   } else {
     alert("fields are empty");
   }
@@ -82,10 +91,18 @@ function deleteNote(noteId) {
     body: JSON.stringify({
       id: noteId,
     }),
-  }).then((res) => {
-    location.reload();
-    console.log("delete request complete:", res);
-  });
+  })
+    .then((res) => {
+      console.log("delete request complete:", res);
+      return res.json();
+    })
+    .then((data) => {
+      eventMsg.classList.toggle("hide");
+      eventMsg.textContent = data.message;
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+    });
 }
 
 function modifyNote(noteId, noteTitle, noteContent) {
@@ -103,6 +120,13 @@ function modifyNote(noteId, noteTitle, noteContent) {
       }),
     }).then((res) => {
       console.log("Request complete! response:", res);
+      return res.json();
+    }).then((data) => {
+      eventMsg.classList.toggle("hide");
+      eventMsg.textContent = data.message;
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
     });
   } else {
     location.reload();
