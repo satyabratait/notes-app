@@ -14,13 +14,11 @@ const heading = document.querySelector(".heading");
 const crossBtn = document.getElementById("crossBtn");
 
 showInputs.addEventListener("click", () => {
-  // inputNote.style.display = block;
   inputNote.classList.toggle("hide");
+  notesCard.classList.toggle("hide");
 });
 
 addBtn.addEventListener("click", () => {
-  // console.log(addTitle.value);
-  // console.log(addContent.value);
   if (addTitle.value.trim().length > 0 && addContent.value.trim().length > 0) {
     fetch("http://127.0.0.1:8090/notes/create", {
       method: "POST",
@@ -66,12 +64,13 @@ function notesDetails(datas) {
 }
 
 async function getData(id) {
-   await fetch(`http://127.0.0.1:8090/notes/oneData/${id}`)
+  await fetch(`http://127.0.0.1:8090/notes/oneData/${id}`)
     .then((data) => {
       return data.json();
-    }).then((data) => {
-      notesDetails(data)
     })
+    .then((data) => {
+      notesDetails(data);
+    });
 }
 
 function deleteNote(noteId) {
@@ -106,14 +105,14 @@ function modifyNote(noteId, noteTitle, noteContent) {
       console.log("Request complete! response:", res);
     });
   } else {
+    location.reload();
     alert("fields are empty");
   }
 }
 
 function notesData(datas) {
   datas.data.forEach((element, index) => {
-    notesCard.innerHTML += 
-            `<div class="noteCard my-2 mx-2 card" onclick="getData('${element._id}')">
+    notesCard.innerHTML += `<div class="noteCard my-2 mx-2 card" onclick="getData('${element._id}')">
             <h5 class="card-title">${element.title}</h5>
             <p class="card-content">${element.content}</p>
             </div>`;

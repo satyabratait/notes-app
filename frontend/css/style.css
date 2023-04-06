@@ -1,179 +1,190 @@
 i {
-    color: white;
+  color: white;
 }
 
 button {
-    background-color: #122736;
-    border: 2px solid white;
+  background-color: #122736;
+  border: 2px solid white;
 }
 
 body {
-    background-color: #122736;
+  background-color: #122736;
 }
 
 .heading {
-    color: white;
+  color: white;
 }
 
 .noteCard {
-    width: 18rem;
-    overflow: hidden;
-    height: 10rem;
-    padding-top: 1rem;
+  width: 18rem;
+  overflow: hidden;
+  height: 10rem;
+  padding-top: 1rem;
 }
 
-.noteCard:nth-child(even){
-    background: linear-gradient(180deg, rgb(121, 121, 135) 0%, rgba(59,60,75,1) 100%);
-    color: #e9e9f2;
+.noteCard:nth-child(even) {
+  background: linear-gradient(
+    180deg,
+    rgb(121, 121, 135) 0%,
+    rgba(59, 60, 75, 1) 100%
+  );
+  color: #e9e9f2;
 }
 
 .inputForm {
-    width: 100%;
+  width: 100%;
 }
 
 .inputTitle {
-    width: 100%;
-    text-align: center;
-    background-color: #122736;
-    color: white;
+  width: 100%;
+  text-align: start;
+  background-color: #122736;
+  padding-left: 2rem;
+  color: white;
+  border: 2px solid white;
+  outline: none;
 }
 
 .title {
-    margin-left: 2rem;
-    outline: none;
+  margin-left: 2rem;
+  outline: none;
 }
 
 .content {
-    margin-left: 2rem;
-    outline: none;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  outline: none;
 }
 
 .inputContent {
-    width: 100%;
-    text-align: center;
-    background-color: #122736;
-    color: white;
-    border: 2px solid white;
+  width: 100%;
+  text-align: start;
+  padding-left: 2rem;
+  background-color: #122736;
+  color: white;
+  border: 2px solid white;
+  outline: none;
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
 }
 
 .addButton {
-    width: 20%;
-    height: 10vh;
-    border-radius: 100%;
+  width: 20%;
+  height: 10vh;
+  border-radius: 100%;
 }
 
 .popup {
-    width: 100%;
-    height: 100%;
-    color: white !important;
+  width: 100%;
+  height: 100%;
+  color: white !important;
 }
 
 .content {
-    color: #A9AFB3;
+  color: #a9afb3;
 }
 
 .deleteBtn {
-    width: 25%;
-    padding: 5% 3% 5% 3%;
-    border-radius: 20%;
-    margin-top: 10%;
+  width: 25%;
+  padding: 5% 3% 5% 3%;
+  border-radius: 20%;
+  margin-top: 10%;
 }
 
 .modifyBtn {
-    width: 25%;
-    padding: 5% 3% 5% 3%;
-    margin-top: 10%;
-    border-radius: 20%;
+  width: 25%;
+  padding: 5% 3% 5% 3%;
+  margin-top: 10%;
+  border-radius: 20%;
 }
 
 @media screen and (min-width: 425px) {
-    .addButton {
-        width: 17%;
-        height: 11vh;
-    }
+  .addButton {
+    width: 17%;
+    height: 11vh;
+  }
 
-    .deleteBtn {
-        width: 16%;
-        padding: 4% 3% 4% 3%;
-    }
-    
-    .modifyBtn {
-        width: 16%;
-        padding: 4% 3% 4% 3%;
-    }
+  .deleteBtn {
+    width: 16%;
+    padding: 4% 3% 4% 3%;
+  }
+
+  .modifyBtn {
+    width: 16%;
+    padding: 4% 3% 4% 3%;
+  }
 }
 
 @media screen and (min-width: 576px) {
-    .inputTitle {
-        width: 50%;
-    }
+  .inputTitle {
+    width: 50%;
+  }
 
-    .inputContent {
-        width: 50%;
-    }
+  .inputContent {
+    width: 50%;
+  }
 
-    .addButton {
-        width: 12%;
-        height: 10vh;
-    }
+  .addButton {
+    width: 12%;
+    height: 10vh;
+  }
 
-    .deleteBtn {
-        width: 10%;
-        padding: 2% 0% 2% 0%;
-    }
-    
-    .modifyBtn {
-        width: 10%;
-        padding: 2% 0% 2% 0%;
-    }
+  .deleteBtn {
+    width: 10%;
+    padding: 2% 0% 2% 0%;
+  }
+
+  .modifyBtn {
+    width: 10%;
+    padding: 2% 0% 2% 0%;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .title {
-        margin-left: 0rem;
-    }
+  .title {
+    margin-left: 0rem;
+  }
 
-    .content {
-        margin-left: 0rem;
-    }
-    
-    .addButton {
-        width: 8%;
-        height: 9vh;
-    }
+  .content {
+    margin-left: 0rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
 
-    .deleteBtn {
-        width: 8%;
-        padding: 2% 0% 2% 0%;
-    }
-    
-    .modifyBtn {
-        width: 8%;
-        padding: 2% 0% 2% 0%;
-    }
+  .addButton {
+    width: 8%;
+    height: 9vh;
+  }
+
+  .deleteBtn {
+    width: 8%;
+    padding: 2% 0% 2% 0%;
+  }
+
+  .modifyBtn {
+    width: 8%;
+    padding: 2% 0% 2% 0%;
+  }
 }
 
 @media screen and (min-width: 992px) {
-    .title {
-        width: 75%;
-        margin: auto;
-    }
-    .addButton{
-        width: 5%;
-        height: 7vh;
-    }
+  .title {
+    margin: auto;
+  }
+  .addButton {
+    width: 4%;
+    height: 7vh;
+  }
 
-    .deleteBtn {
-        width: 6%;
-        padding: 1.5% 0% 1.5% 0%;
-    }
-    
-    .modifyBtn {
-        width: 6%;
-        padding: 1.5% 0% 1.5% 0%;
-    }
+  .deleteBtn {
+    width: 6%;
+    padding: 1.5% 0% 1.5% 0%;
+  }
+
+  .modifyBtn {
+    width: 6%;
+    padding: 1.5% 0% 1.5% 0%;
+  }
 }

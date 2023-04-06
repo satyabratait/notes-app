@@ -6,16 +6,15 @@ export async function createNote(title, content) {
     content,
   });
   if (result) {
-      return JSON.stringify({
-        status: 201,
-        message: "data added",
-      });
-  }
-  else {
     return JSON.stringify({
-        status: 204,
-        message: "data cannot be created"
-    })
+      status: 201,
+      message: "data added",
+    });
+  } else {
+    return JSON.stringify({
+      status: 204,
+      message: "data cannot be created",
+    });
   }
 }
 
@@ -27,18 +26,17 @@ export async function updateNote(id, title, content) {
     const result = await data.save();
     console.log(result);
     if (result) {
-        return JSON.stringify({
-          status: 201,
-          message: "updated success",
-          result,
-        });
-    }
-    else {
-        return JSON.stringify({
-            status: 204,
-            message: "data cannot be updated",
-            result,
-        })
+      return JSON.stringify({
+        status: 201,
+        message: "updated success",
+        result,
+      });
+    } else {
+      return JSON.stringify({
+        status: 204,
+        message: "data cannot be updated",
+        result,
+      });
     }
   }
 }
@@ -48,17 +46,16 @@ export async function deleteNote(id) {
   const data = await notesDataModel.findByIdAndDelete(id);
   if (data) {
     return JSON.stringify({
-        status: 200,
-        message: "data deleted",
-        data
-      });
-  }
-  else {
+      status: 200,
+      message: "data deleted",
+      data,
+    });
+  } else {
     return JSON.stringify({
-        status: 204,
-        message:"data not found",
-        data
-    })
+      status: 204,
+      message: "data not found",
+      data,
+    });
   }
 }
 
@@ -71,13 +68,12 @@ export async function readNotes() {
         message: "all datas",
         data,
       });
-    }
-    else {
-        return JSON.stringify({
-            status: 204,
-            message: "data cannot be fetched",
-            data,
-        });
+    } else {
+      return JSON.stringify({
+        status: 204,
+        message: "data cannot be fetched",
+        data,
+      });
     }
   } catch (err) {
     console.log(err);
@@ -98,9 +94,7 @@ export async function getOneData(id) {
         status: 204,
         message: "data cannot be fetched",
         data,
-      })
+      });
     }
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 }

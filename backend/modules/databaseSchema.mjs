@@ -1,8 +1,8 @@
-import {model,Schema} from "mongoose";
+import { model, Schema } from "mongoose";
 
 const notesDataSchema = new Schema({
-    title: String,
-    content: String,
+  title: String,
+  content: String,
 });
 
-export default model("notesDataSchema",notesDataSchema);
+export default model("notesDataSchema", notesDataSchema);

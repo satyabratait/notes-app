@@ -20,7 +20,7 @@
   <body>
     <!--header-->
     <div class="d-flex justify-content-between py-3 px-3 heading">
-      <h1>Add a note</h1>
+      <h1 class="fw-light">Add a note</h1>
       <button class="addButton" id="showBtn">
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -29,12 +29,14 @@
 
     <!-- input  -->
     <div class="inputNote hide d-flex flex-column align-items-center mb-5">
-      <form class="mb-3 inputForm px-3 d-flex flex-column gap-3 align-items-center">
+      <form
+        class="mb-3 inputForm px-3 d-flex flex-column gap-3 align-items-center"
+      >
         <input
           type="text"
           placeholder="Title"
           id="addTitle"
-          class="border-0 inputTitle fs-1"
+          class="inputTitle fs-1"
         />
         <textarea
           id="addContext"
@@ -61,14 +63,8 @@
       <button class="addButton my-4 ms-4" id="crossBtn">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <h2
-        class="title text-md-center text-start"
-        contenteditable="true"
-      ></h2>
-      <p
-        class="content text-md-center text-start"
-        contenteditable="true"
-      ></p>
+      <h2 class="title text-md-center text-start" contenteditable="true"></h2>
+      <p class="content text-md-center text-start" contenteditable="true"></p>
       <div
         class="d-flex flex-row justify-content-center align-items-center gap-2"
       >
@@ -80,6 +76,7 @@
         </button>
       </div>
     </div>
+    <!-- all contents ends -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
