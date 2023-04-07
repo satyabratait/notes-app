@@ -8,7 +8,7 @@ button {
 }
 
 .checkIcon {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 
 body {
@@ -58,6 +58,7 @@ body {
   margin-left: 2rem;
   outline: none;
   text-align: start;
+  outline: none;
 }
 
 .content {
@@ -83,8 +84,10 @@ body {
 
 .addButton {
   width: 20%;
-  height: 10vh;
+  height: 9.5vh;
   border-radius: 100%;
+  transition: transform 0.3s ease-in;
+  font-size: 1.5rem;
 }
 
 .popup {
@@ -115,6 +118,17 @@ body {
   padding-top: 2rem;
   text-align: center;
   color: white;
+  animation: fadeOut 4.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @media screen and (min-width: 425px) {
@@ -141,6 +155,10 @@ body {
     display: block;
     margin-left: 23%;
   }
+
+  .eventMsg {
+    display: hide !important;
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -154,7 +172,7 @@ body {
 
   .addButton {
     width: 12%;
-    height: 10vh;
+    height: 11vh;
   }
 
   .deleteBtn {
@@ -199,7 +217,7 @@ body {
   }
 
   .popupHeading {
-    margin-left: 34%;
+    margin-left: 33.5%;
   }
 }
 
@@ -207,9 +225,10 @@ body {
   .title {
     margin: auto;
   }
+
   .addButton {
     width: 4%;
-    height: 7vh;
+    height: 6vh;
   }
 
   .deleteBtn {
@@ -223,12 +242,17 @@ body {
   }
 
   .popupHeading {
-    margin-left: 40%;
+    margin-left: 39%;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .addButton {
+    width: 5%;
+    height: 8vh;
+  }
+
   .popupHeading {
-    margin-left: 41.5%;
+    margin-left: 39.5%;
   }
 }

@@ -12,11 +12,21 @@ const modifyBtn = document.querySelector(".modifyBtn");
 const heading = document.querySelector(".heading");
 const crossBtn = document.getElementById("crossBtn");
 const eventMsg = document.querySelector(".eventMsg");
+const popupHeading = document.querySelector(".popupHeading");
+const topheading = document.querySelector(".heading h1");
 
-showInputs.addEventListener("click", () => {
+function toggleHeading() {
   inputNote.classList.toggle("hide");
   notesCard.classList.toggle("hide");
   showInputs.classList.toggle("checkIcon");
+}
+
+topheading.addEventListener("click", () => {
+  toggleHeading();
+});
+
+showInputs.addEventListener("click", () => {
+  toggleHeading();
 });
 
 addBtn.addEventListener("click", () => {
@@ -40,9 +50,10 @@ addBtn.addEventListener("click", () => {
       .then((data) => {
         eventMsg.classList.toggle("hide");
         eventMsg.textContent = data.message;
+        popupHeading.classList.toggle("hide").textContent = data.message;
         setTimeout(() => {
           location.reload();
-        }, 2000);
+        }, 4000);
       });
   } else {
     alert("fields are empty");
@@ -101,7 +112,7 @@ function deleteNote(noteId) {
       eventMsg.textContent = data.message;
       setTimeout(() => {
         location.reload();
-      }, 2000);
+      }, 4000);
     });
 }
 
@@ -128,7 +139,7 @@ function modifyNote(noteId, noteTitle, noteContent) {
         eventMsg.textContent = data.message;
         setTimeout(() => {
           location.reload();
-        }, 2000);
+        }, 4000);
       });
   } else {
     location.reload();
@@ -139,8 +150,8 @@ function modifyNote(noteId, noteTitle, noteContent) {
 function notesData(datas) {
   datas.data.forEach((element, index) => {
     notesCard.innerHTML += `<div class="noteCard my-2 mx-2 card" onclick="getData('${element._id}')">
-            <h5 class="card-title">${element.title}</h5>
-            <p class="card-content">${element.content}</p>
+            <h5 class="cardTitle">${element.title}</h5>
+            <p class="cardContent">${element.content}</p>
             </div>`;
   });
 }
