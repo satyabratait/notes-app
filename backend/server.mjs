@@ -1,13 +1,15 @@
-import mongoose from "mongoose";
 import * as notesData from "./modules/functions.mjs";
 import express from "express";
 import cors from "cors";
+import { databaseConnect } from "./database/dbConfig.mjs"
 const app = express();
 
 app.use(express.json());
 
 app.use(cors());
 app.options("*", cors());
+
+databaseConnect();
 
 app.get("/notes/read", (req, res) => {
   notesData.readNotes().then((doc) => {
@@ -48,14 +50,3 @@ app.delete("/notes/delete", (req, res) => {
 app.listen(8090, function (req, res) {
   console.log("It's running at http://127.0.0.1:8090");
 });
-
-mongoose
-  .connect(
-    "mongodb+srv://satyabrata:satyabrata@cluster0.efmi4af.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true, // default recommended options
-      useUnifiedTopology: true,
-    }
-  )
-  .then((e) => console.log("MongoDB ready"))
-  .catch(console.error);
