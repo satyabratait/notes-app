@@ -15,12 +15,6 @@ const eventMsg = document.querySelector(".eventMsg");
 const popupHeading = document.querySelector(".popupHeading");
 const topheading = document.querySelector(".heading h1");
 
-function toggleHeading() {
-  inputNote.classList.toggle("hide");
-  notesCard.classList.toggle("hide");
-  showInputs.classList.toggle("checkIcon");
-}
-
 topheading.addEventListener("click", () => {
   toggleHeading();
 });
@@ -31,7 +25,7 @@ showInputs.addEventListener("click", () => {
 
 addBtn.addEventListener("click", () => {
   if (addTitle.value.trim().length > 0 && addContent.value.trim().length > 0) {
-    fetch("http://127.0.0.1:8090/notes/create", {
+    fetch("http://127.0.0.1:8090/api/create", {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -84,7 +78,7 @@ function notesDetails(datas) {
 }
 
 async function getData(id) {
-  await fetch(`http://127.0.0.1:8090/notes/oneData/${id}`)
+  await fetch(`http://127.0.0.1:8090/api/oneData/${id}`)
     .then((data) => {
       return data.json();
     })
@@ -94,7 +88,7 @@ async function getData(id) {
 }
 
 function deleteNote(noteId) {
-  fetch("http://127.0.0.1:8090/notes/delete", {
+  fetch("http://127.0.0.1:8090/api/delete", {
     method: "DELETE",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -119,7 +113,7 @@ function deleteNote(noteId) {
 function modifyNote(noteId, noteTitle, noteContent) {
   console.log(noteId);
   if (noteId && noteTitle.trim().length > 0 && noteContent.trim().length > 0) {
-    fetch("http://127.0.0.1:8090/notes/update", {
+    fetch("http://127.0.0.1:8090/api/update", {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -157,7 +151,7 @@ function notesData(datas) {
 }
 
 async function getNotesData() {
-  await fetch("http://127.0.0.1:8090/notes/read")
+  await fetch("http://127.0.0.1:8090/api/read")
     .then((data) => {
       return data.json();
     })
@@ -169,3 +163,9 @@ async function getNotesData() {
 (() => {
   getNotesData();
 })();
+
+function toggleHeading() {
+  inputNote.classList.toggle("hide");
+  notesCard.classList.toggle("hide");
+  showInputs.classList.toggle("checkIcon");
+}

@@ -1,25 +1,30 @@
 import notesDataModel from "./databaseSchema.mjs";
 
 export async function createNote(title, content) {
-  const result = await notesDataModel.create({
-    title,
-    content,
-  });
-  if (result) {
-    return JSON.stringify({
-      status: 201,
-      message: "note added sucessfully",
+  try {
+    const result = await notesDataModel.create({
+      title,
+      content,
     });
-  } else {
-    return JSON.stringify({
-      status: 204,
-      message: "note cannot be created",
-    });
+    if (result) {
+      return JSON.stringify({
+        status: 201,
+        message: "note added sucessfully",
+      });
+    } else {
+      return JSON.stringify({
+        status: 204,
+        message: "note cannot be created",
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
 export async function updateNote(id, title, content) {
-  const data = await notesDataModel.findById(id);
+  try {
+    const data = await notesDataModel.findById(id);
   if (data) {
     data.title = title;
     data.content = content;
@@ -39,11 +44,15 @@ export async function updateNote(id, title, content) {
       });
     }
   }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function deleteNote(id) {
   console.log(id);
-  const data = await notesDataModel.findByIdAndDelete(id);
+  try {
+    const data = await notesDataModel.findByIdAndDelete(id);
   if (data) {
     return JSON.stringify({
       status: 200,
@@ -56,6 +65,9 @@ export async function deleteNote(id) {
       message: "note not found",
       data,
     });
+  }
+  } catch (error) {
+    console.log(error);
   }
 }
 
