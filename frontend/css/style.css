@@ -17,6 +17,7 @@ body {
 
 .heading {
   color: white;
+  background-color: #122736;
 }
 
 .noteCard {
@@ -198,7 +199,7 @@ body {
   .content {
     margin-left: 0rem;
     padding-left: 1rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
   }
 
   .addButton {
@@ -227,8 +228,8 @@ body {
   }
 
   .addButton {
-    width: 4%;
-    height: 6vh;
+    width: 7%;
+    height: 11vh;
   }
 
   .deleteBtn {
@@ -242,7 +243,7 @@ body {
   }
 
   .popupHeading {
-    margin-left: 39%;
+    margin-left: 36%;
   }
 }
 
