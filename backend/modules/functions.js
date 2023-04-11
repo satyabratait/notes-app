@@ -33,7 +33,7 @@ export async function updateNote(id, title, content, next) {
     console.log(result);
     if (result) {
       return JSON.stringify({
-        message: "data found",
+        message: "note updated",
         status: 200,
         data,
         success: true,
@@ -54,7 +54,7 @@ export async function deleteNote(id, next) {
     const data = await notesDataModel.findByIdAndDelete(id);
   if (data) {
     return JSON.stringify({
-      message: "data found",
+      message: "note deleted",
       status: 200,
       data,
       success: true,
