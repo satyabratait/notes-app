@@ -23,7 +23,8 @@ function toggleHeading() {
 }
 
 async function fetchApi(url, method, data, successCallBack, errorCallBack) {
-  await fetch(url, {method, 
+  await fetch(url, {
+    method,
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
@@ -104,31 +105,11 @@ async function getData(id) {
 }
 
 function deleteNote(noteId) {
-  fetchApi(`${baseUrl}/delete`,"DELETE",JSON.stringify({
-    id: noteId,
-  }),
-  (res) => {
-    res.json().then((data) => {
-      eventMsg.classList.toggle("hide");
-      eventMsg.textContent = data.message;
-      setTimeout(() => {
-        location.reload();
-      }, 4000);
-    })
-  },
-  (err) => {
-    alert(err.message);
-  });
-}
-
-function modifyNote(noteId, noteTitle, noteContent) {
-  console.log(noteId);
-  if (noteId && noteTitle.trim().length > 0 && noteContent.trim().length > 0) {
-
-    fetchApi(`${baseUrl}/update`,"PUT",JSON.stringify({
+  fetchApi(
+    `${baseUrl}/delete`,
+    "DELETE",
+    JSON.stringify({
       id: noteId,
-      title: noteTitle,
-      content: noteContent,
     }),
     (res) => {
       res.json().then((data) => {
@@ -137,11 +118,38 @@ function modifyNote(noteId, noteTitle, noteContent) {
         setTimeout(() => {
           location.reload();
         }, 4000);
-      })
+      });
     },
     (err) => {
-      console.log(err.message);
-    })
+      alert(err.message);
+    }
+  );
+}
+
+function modifyNote(noteId, noteTitle, noteContent) {
+  console.log(noteId);
+  if (noteId && noteTitle.trim().length > 0 && noteContent.trim().length > 0) {
+    fetchApi(
+      `${baseUrl}/update`,
+      "PUT",
+      JSON.stringify({
+        id: noteId,
+        title: noteTitle,
+        content: noteContent,
+      }),
+      (res) => {
+        res.json().then((data) => {
+          eventMsg.classList.toggle("hide");
+          eventMsg.textContent = data.message;
+          setTimeout(() => {
+            location.reload();
+          }, 4000);
+        });
+      },
+      (err) => {
+        console.log(err.message);
+      }
+    );
   } else {
     location.reload();
     alert("fields are empty");

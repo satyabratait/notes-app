@@ -3,7 +3,7 @@ import * as notesData from "./functions.js";
 
 const route = express.Router();
 
-route.get("/", function (req, res,next) {
+route.get("/", function (req, res, next) {
   res.send("api working");
 });
 
